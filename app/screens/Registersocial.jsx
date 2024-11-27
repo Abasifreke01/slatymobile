@@ -1,7 +1,7 @@
 import { View, Image, Text, TextInput, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { auth, db } from './firebaseConfig'; // Adjust the path as necessary
+import { auth, db } from '../firebaseConfig'; // Adjust the path as necessary
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 

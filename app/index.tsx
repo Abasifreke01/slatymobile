@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
+import Drawernavigator from './Drawernavigator';
+import { NavigationIndependentTree } from '@react-navigation/native';
 // Import your screens here
 import HomeScreen from './screens/HomeScreen'; 
 import DetailScreen from './screens/DetailScreen'; 
@@ -83,9 +84,11 @@ const MyTabs = () => {
 const App = () => { 
   return ( 
     <GestureHandlerRootView style={{ flex: 1 }}> 
-      <NavigationContainer independent={true}>      
+    <NavigationIndependentTree>
+      <NavigationContainer>      
         <Stack.Navigator initialRouteName='HomeScreen'> 
           <Stack.Screen name='Main' component={MyTabs} options={{ headerShown: false }} />
+          <Stack.Screen name='Drawer' component={Drawernavigator} options={{ headerShown: false }} />
           <Stack.Screen name='Login' component={Login} /> 
           <Stack.Screen name='Loginsocial' component={Loginsocial} />
           <Stack.Screen name='Accept' component={Accept} />
@@ -96,12 +99,12 @@ const App = () => {
           <Stack.Screen name='Communities' component={Communities} />
           <Stack.Screen name='Messages' component={Messages} />   
           <Stack.Screen name='VideoCall' component={VideoCall} />
-          <Stack.Screen name='HomeScreen' component={HomeScreen}/> 
+          <Stack.Screen name='HomeScreen' component={HomeScreen} /> 
           <Stack.Screen name='Detail' component={DetailScreen} /> 
-          <Stack.Screen name='Onboarding2' component={Onboarding2}/> 
-           
+          <Stack.Screen name='Onboarding2' component={Onboarding2}/>
         </Stack.Navigator> 
       </NavigationContainer> 
+    </NavigationIndependentTree>
     </GestureHandlerRootView> 
   );
 };

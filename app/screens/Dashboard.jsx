@@ -46,7 +46,9 @@ export default function Dashboard() {
       <ScrollView>
         <View style={styles.topContainer}>
           <View style={styles.userContainer}>
+            <TouchableOpacity onPress={() => navigation.navigate("Drawer")}>
             <Image source={picture} style={styles.imageStyle} />
+            </TouchableOpacity>
             <Text style={styles.textStyle}>Hello, {username || 'User'}!</Text>
           </View>
           <View style={styles.iconContainer}>
