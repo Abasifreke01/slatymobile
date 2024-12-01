@@ -7,10 +7,7 @@ import Button from '@/components/ui/Button';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import React, { useState } from 'react';
 import { FlatList, View } from 'react-native';
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const activityList = [
   {
@@ -65,8 +62,6 @@ export const activityList = [
 const Home = () => {
   const [showBanner, setShowBanner] = useState(true);
   const hideBanner = () => setShowBanner(false);
-  const { bottom } = useSafeAreaInsets();
-
   return (
     <SafeAreaView className="flex-1 bg-[#151320]">
       <View className="relative flex-1 px-4">
@@ -79,10 +74,9 @@ const Home = () => {
           showsVerticalScrollIndicator={false}
           data={activityList}
           renderItem={({ item }) => <TutorListItem item={item} />}
-          contentContainerStyle={{ paddingBottom: bottom }}
           ListEmptyComponent={<EmptyActivityList />}
         />
-        <View className="absolute -bottom-8 left-0 right-0 z-10 items-center justify-center">
+        <View className="absolute bottom-0 left-0 right-0 z-10 items-center justify-center">
           <Button className="w-max p-6 shadow-2xl">
             <FontAwesome5 name="plus" size={24} color="white" />
           </Button>

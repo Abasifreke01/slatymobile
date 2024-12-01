@@ -4,7 +4,7 @@ import Feather from '@expo/vector-icons/Feather';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from 'react';
-import { FlatList, Switch, Text, View } from 'react-native';
+import { FlatList, Platform, Switch, Text, View } from 'react-native';
 import {
   SafeAreaView,
   useSafeAreaInsets,
@@ -108,7 +108,10 @@ const FindTopics = () => {
           <FlatList
             className="mt-6"
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ paddingBottom: bottom + 120 }}
+            contentContainerStyle={{
+              paddingBottom:
+                Platform.OS === 'ios' ? bottom + 120 : bottom + 230,
+            }}
             data={results}
             renderItem={({ item }) => (
               <View
