@@ -7,5 +7,6 @@ export { default as FindActiveIcon } from './find-active';
 export { default as FindInactiveIcon } from './find-inactive';
 export { default as HomeActiveIcon } from './home-active';
 export { default as HomeInactiveIcon } from './home-inactive';
+export { default as MoneyIcon } from './money';
 export { default as ProfileActiveIcon } from './profile-active';
 export { default as ProfileInactiveIcon } from './profile-inactive';
