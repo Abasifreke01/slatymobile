@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
+import AntDesign from "@expo/vector-icons/AntDesign";
 const slaty = require("../photo/WaitingRoom - Slaty.png");
 
 const WaitingRoomScreen = ({ navigation }) => {
@@ -30,7 +31,7 @@ const WaitingRoomScreen = ({ navigation }) => {
       <View style={styles.footer}>
         <Text style={styles.footerText}>Starting Meeting</Text>
         <View style={styles.footerIcon}>
-          <View style={styles.footerIconInner}></View>
+          <AntDesign name="loading1" size={24} color="#1DE9B6" />
         </View>
       </View>
     </View>
@@ -98,6 +99,7 @@ const styles = StyleSheet.create({
     height: 24,
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 10,
   },
   footerIconInner: {
     width: 18,

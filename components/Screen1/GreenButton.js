@@ -12,20 +12,3 @@ const GreenButton = ({ text, onPress }) => (
 );
 
 export default GreenButton;
-
-// const styles = StyleSheet.create({
-//   button: {
-//     backgroundColor: "#4CAF50",
-//     paddingVertical: 12,
-//     paddingHorizontal: 25,
-//     borderRadius: 8, // Rounded corners for a modern look
-//     alignItems: "center",
-//   },
-//   text: {
-//     color: "#FFFFFF",
-//     fontSize: 16,
-//     fontWeight: "600",
-//   },
-// });
-
-// export default GreenButton;
