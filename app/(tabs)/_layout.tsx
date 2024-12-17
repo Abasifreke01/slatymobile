@@ -42,7 +42,7 @@ const tabs: Tabs[] = [
     inactiveIcon: CameraInactiveIcon,
   },
   {
-    name: 'connect',
+    name: '(connect)',
     title: 'Connect',
     activeIcon: ChatActiveIcon,
     inactiveIcon: ChatInactiveIcon,
