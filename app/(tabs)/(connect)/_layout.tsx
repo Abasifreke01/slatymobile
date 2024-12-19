@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { createMaterialTopTabNavigator, MaterialTopTabNavigationOptions, MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs'
 import React from 'react'
 import { withLayoutContext } from 'expo-router'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'; 
 import HomeScreen from './chats'
 import TabTwoScreen from './communities'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
@@ -15,6 +15,7 @@ const Tab = createMaterialTopTabNavigator();
 export default function _layout() {
   return(
   <GestureHandlerRootView>
+    <NavigationContainer>
  <Tab.Navigator screenOptions={{
   swipeEnabled: true,
   tabBarStyle: {
@@ -23,7 +24,7 @@ export default function _layout() {
   tabBarBounces: true,
 
  }}>
-  <Tab.Screen name='index' component={HomeScreen} options={{
+  <Tab.Screen name='chats' component={HomeScreen} options={{
     tabBarBadge: (() => <Text>7</Text> ),
     tabBarActiveTintColor: '#1DE9B6',
     tabBarInactiveTintColor: 'gray',
@@ -36,7 +37,7 @@ export default function _layout() {
     },
     title: 'Chats',
   }}/>
-  <Tab.Screen name='explore' component={TabTwoScreen}
+  <Tab.Screen name='communities' component={TabTwoScreen}
   options={{
 
     tabBarBadge: (() => <Text>7</Text> ),
@@ -54,6 +55,7 @@ export default function _layout() {
   />
 
  </Tab.Navigator>
+ </NavigationContainer>
   </GestureHandlerRootView>
   )
 }
