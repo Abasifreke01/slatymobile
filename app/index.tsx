@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'; 
-import { createNativeStackNavigator } from '@react-navigation/native-stack'; 
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -83,10 +84,10 @@ const MyTabs = () => {
 const App = () => { 
   return ( 
     <GestureHandlerRootView style={{ flex: 1 }}> 
-      <NavigationContainer independent={true}>      
+      <NavigationContainer>      
         <Stack.Navigator initialRouteName='HomeScreen'> 
           <Stack.Screen name='Main' component={MyTabs} options={{ headerShown: false }} />
-          <Stack.Screen name='Login' component={Login} /> 
+          <Stack.Screen name='Login' component={Login} />
           <Stack.Screen name='Loginsocial' component={Loginsocial} />
           <Stack.Screen name='Accept' component={Accept} />
           <Stack.Screen name='Registersocial' component={Registersocial} />
