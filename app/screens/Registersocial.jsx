@@ -1,14 +1,22 @@
-import { View, Image, Text, TextInput, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
-import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { auth, db } from './firebaseConfig'; // Adjust the path as necessary
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
+import React, { useState } from 'react';
+import {
+  ActivityIndicator,
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { auth, db } from '../firebaseConfig'; // Adjust the path as necessary
 
 function Registersocial({ navigation }) {
-  const google = require("../../assets/images/google icon.png");
-  const facebook = require("../../assets/images/facebook icon.png");
-  const apple = require("../../assets/images/appleslogo.png");
+  const google = require('../../assets/images/google icon.png');
+  const facebook = require('../../assets/images/facebook icon.png');
+  const apple = require('../../assets/images/appleslogo.png');
 
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -39,7 +47,8 @@ function Registersocial({ navigation }) {
       return;
     }
 
-    if (password.length < 6) { // Example password length check
+    if (password.length < 6) {
+      // Example password length check
       setErrorMessage('Password must be at least 6 characters long.');
       return;
     }
@@ -48,7 +57,11 @@ function Registersocial({ navigation }) {
 
     try {
       // Create user with email and password
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       console.log('User signed up:', user);
@@ -64,7 +77,9 @@ function Registersocial({ navigation }) {
       navigation.navigate('Dashboard'); // Navigate to the Dashboard screen
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
-        setErrorMessage('This email is already in use. Please use a different email.');
+        setErrorMessage(
+          'This email is already in use. Please use a different email.'
+        );
       } else {
         setErrorMessage(error.message);
       }
@@ -87,7 +102,9 @@ function Registersocial({ navigation }) {
         />
         <Text style={styles.title}>Create New Account</Text>
 
-        {errorMessage ? <Text style={styles.errorText}>{errorMessage}</Text> : null}
+        {errorMessage ? (
+          <Text style={styles.errorText}>{errorMessage}</Text>
+        ) : null}
 
         <TextInput
           style={[styles.input, isEmailFocused && styles.inputFocused]}
@@ -137,7 +154,7 @@ function Registersocial({ navigation }) {
 
         <View style={styles.loginContainer}>
           <Text style={styles.loginText}>
-            Already have an account? 
+            Already have an account?
             <TouchableOpacity onPress={navigateToLogin}>
               <Text style={styles.loginLink}> Log in</Text>
             </TouchableOpacity>

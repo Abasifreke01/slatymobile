@@ -1,9 +1,10 @@
-import { View, Image, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { Link } from 'expo-router';
 import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const dark = require("../../assets/images/Button-dark.png"); // Dark button image
-const learn = require("../../assets/images/learn.png"); // Learn image
+const dark = require('../../assets/images/Button-dark.png'); // Dark button image
+const learn = require('../../assets/images/learn.png'); // Learn image
 
 function DetailScreen({ navigation }) {
   return (
@@ -24,15 +25,17 @@ function DetailScreen({ navigation }) {
       </View>
 
       <View style={styles.bottomContainer}>
-        <Text style={styles.bottomText}>Learning Made Easy</Text>
-        
+        <Link href="/(tabs)">
+          <Text style={styles.bottomText}>Learning Made Easy</Text>
+        </Link>
+
         {/* Spacer between texts */}
         <View style={styles.spacer} />
 
         <Text style={styles.bottomTextsecond}>
           With SLATY you can find solutions to all your academic needs
         </Text>
-        
+
         {/* Spacer between texts */}
         <View style={styles.spacer} />
 
